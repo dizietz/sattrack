@@ -31,10 +31,14 @@
     const tleLine1 = '1 25544U 98067A   19156.50900463  .00003075  00000-0  59442-4 0  9992';
     const tleLine2 = '2 25544  51.6433  59.2583 0008217  16.4489 347.6017 15.51174618173442';
     const satrec = satellite.twoline2satrec(tleLine1,tleLine2);
-    //const satrec = satellite.twoline2satrec(
-    //  ISS_TLE.split('\n')[0].trim(), 
-    //  ISS_TLE.split('\n')[1].trim()
-    //);
+    const satrec1 = satellite.twoline2satrec(
+      ISS_TLE.split('\n')[0].trim(), 
+      ISS_TLE.split('\n')[1].trim()
+    );
+    console.log(ISS_TLE.split('\n')[0].trim());
+    console.log(ISS_TLE.split('\n')[1].trim());
+    console.log(tleLine1);
+    console.log(tleLine2);
     // Give SatelliteJS the TLE's and a specific time.
     // Get back a longitude, latitude, height (km).
     // We're going to generate a position every 10 seconds from now until 6 seconds from now. 
@@ -55,6 +59,7 @@
       const jsDate = Cesium.JulianDate.toDate(time);
 
       const positionAndVelocity = satellite.propagate(satrec, jsDate);
+      //const positionAndVelocity = satellite.sgp4(satrec, timeSinceTleEpochMinutes);
       const gmst = satellite.gstime(jsDate);
       const p   = satellite.eciToGeodetic(positionAndVelocity.position, gmst);
 
