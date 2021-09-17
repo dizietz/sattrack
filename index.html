@@ -26,8 +26,8 @@
     // the ISS is at any given moment. They are regularly updated.
     // Get the latest from: https://celestrak.com/satcat/tle.php?CATNR=25544. 
     const ISS_TLE = 
-    `1 28654U 05018A   21260.09931948  .00000090  00000-0  73042-4 0  9992
-    2 28654  98.9861 325.2937 0014558  27.7483 332.4462 14.12638374841470`;
+    `1 41332U 16009A   21259.76762762  .00003549  00000-0  10072-3 0  9995
+    2 41332  97.2770 332.7154 0019606 230.4629 129.4884 15.36697390313743`;
     const satrec = satellite.twoline2satrec(
       ISS_TLE.split('\n')[0].trim(), 
       ISS_TLE.split('\n')[1].trim()
